@@ -10,17 +10,17 @@ pygame.init() #Turns on pygame
 screen = pygame.display.set_mode((1000, 700)) #display and dimensions of the screen 
 
 #the background of the screen
-wallpaper = pygame.image.load('batcave.jpeg') 
+wallpaper = pygame.image.load("batcave.jpeg") 
 wallpaper = pygame.transform.scale(wallpaper, (1000, 700))
 
 mixer.music.load("rafters.flac") #loads flac batman ost 
 mixer.music.play(-1) #loops the ost
 
 pygame.display.set_caption("Batcave Battle") #Screen title
-icon = pygame.image.load('batsymbol.jpeg') 
+icon = pygame.image.load("batsymbol.jpeg") 
 pygame.display.set_icon(icon) #makes the bar icon the bat symbol
 
-the_batman = pygame.image.load('batman.jpeg')
+the_batman = pygame.image.load("batman.jpeg")
 the_batman = pygame.transform.scale(the_batman, (100, 100))
 batman_x = 370
 batman_y = 600
@@ -32,7 +32,7 @@ parademons_x = []
 parademons_y = []
 parademons_x_mod = []
 parademons_y_mod = []
-number_parademons = 6 
+number_parademons = 20 #number of parademons needed to be destroyed
 
 def rotate_image(the_batman):
     the_batman = pygame.transform.rotate.rotozoom(parademons, 20, 1)
@@ -40,7 +40,7 @@ def rotate_image(the_batman):
 
 #this for loop determines the number of parademons and embeds them with an x and y position and appends them to their lists
 for i in range(number_parademons): 
-    parademons = pygame.image.load('parademons.webp')
+    parademons = pygame.image.load("parademons.webp")
     parademons = pygame.transform.scale(parademons, (75, 75)) 
     parademons_image.append(parademons) #this is where the append occurs
     parademons_x.append(random.randint(0, 720)) #the random x coordinate
@@ -48,12 +48,12 @@ for i in range(number_parademons):
     parademons_x_mod.append(10) #mod in the position
     parademons_y_mod.append(20) #mod in the position
 
-batarang_image = pygame.image.load('batarang.jpeg')
+batarang_image = pygame.image.load("batarang.jpeg")
 batarang_image = pygame.transform.scale(batarang_image, (50, 50)) #Scales the projectile down
 
 batarang_x = 0 #x coordinate of the batarang
 batarang_y = 700 #y coordinate of the batarang
-batarang_x_mod = 0 #mod where the batarang position doesn't change
+batarang_x_mod = 0 #mod where the batarang position doesn"t change
 batarang_y_mod = 20 #mod of velocity quantity
 batarang_status = "pressed" 
 
@@ -130,7 +130,7 @@ while playing: #while loop that determines whether the game is starting
             if event.key == pygame.K_a or event.key == pygame.K_d:
                 batman_x_mod = 0
 
-    #mod where the player isn't allowed to move off screen
+    #mod where the player isn"t allowed to move off screen
     batman_x += batman_x_mod 
     if batman_x <= 0:
         batman_x = 0
