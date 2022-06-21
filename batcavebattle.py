@@ -10,17 +10,17 @@ pygame.init() #Turns on pygame
 screen = pygame.display.set_mode((1000, 700)) #display and dimensions of the screen 
 
 #the background of the screen
-wallpaper = pygame.image.load('/Users/chrispark/pygame2/batcave.jpeg') 
+wallpaper = pygame.image.load('/Users/chrispark/batman/batcave.jpeg') 
 wallpaper = pygame.transform.scale(wallpaper, (1000, 700))
 
-mixer.music.load("/Users/chrispark/pygame2/rafters.flac") #loads flac batman ost 
+mixer.music.load("/Users/chrispark/batman/rafters.flac") #loads flac batman ost 
 mixer.music.play(-1) #loops the ost
 
 pygame.display.set_caption("Batcave Battle") #Screen title
-icon = pygame.image.load('/Users/chrispark/pygame2/batsymbol.jpeg') 
+icon = pygame.image.load('/Users/chrispark/batman/batsymbol.jpeg') 
 pygame.display.set_icon(icon) #makes the bar icon the bat symbol
 
-the_batman = pygame.image.load('/Users/chrispark/pygame2/batman.jpeg')
+the_batman = pygame.image.load('/Users/chrispark/batman/batman.jpeg')
 the_batman = pygame.transform.scale(the_batman, (100, 100))
 batman_x = 370
 batman_y = 600
@@ -40,7 +40,7 @@ def rotate_image(the_batman):
 
 #this for loop determines the number of parademons and embeds them with an x and y position and appends them to their lists
 for i in range(number_parademons): 
-    parademons = pygame.image.load('/Users/chrispark/pygame2/parademons.webp')
+    parademons = pygame.image.load('/Users/chrispark/batman/parademons.webp')
     parademons = pygame.transform.scale(parademons, (75, 75)) 
     parademons_image.append(parademons) #this is where the append occurs
     parademons_x.append(random.randint(0, 720)) #the random x coordinate
@@ -48,7 +48,7 @@ for i in range(number_parademons):
     parademons_x_mod.append(10) #mod in the position
     parademons_y_mod.append(20) #mod in the position
 
-batarang_image = pygame.image.load('/Users/chrispark/pygame2/batarang.jpeg')
+batarang_image = pygame.image.load('/Users/chrispark/batman/batarang.jpeg')
 batarang_image = pygame.transform.scale(batarang_image, (50, 50)) #Scales the projectile down
 
 batarang_x = 0 #x coordinate of the batarang
@@ -120,7 +120,7 @@ while playing: #while loop that determines whether the game is starting
                 batman_x_mod = 5
             if event.key == pygame.K_LSHIFT:
                 if batarang_status is "pressed": 
-                    batarang_sound = mixer.Sound("/Users/chrispark/pygame2/toss.mp3") #the sound played when shift key is pressed
+                    batarang_sound = mixer.Sound("/Users/chrispark/batman/toss.mp3") #the sound played when shift key is pressed
                     batarang_sound.play()
                     batarang_x = batman_x
                     batarang_toss(batarang_x, batarang_y)
@@ -157,7 +157,7 @@ while playing: #while loop that determines whether the game is starting
 
         strike = batarang_strike(parademons_x[i], parademons_y[i], batarang_x, batarang_y)
         if strike:
-            explosion_sound = mixer.Sound("/Users/chrispark/pygame2/explosion.wav")
+            explosion_sound = mixer.Sound("/Users/chrispark/batman/explosion.wav")
             explosion_sound.play()
             batarang_y = 480
             batarang_status = "pressed"
